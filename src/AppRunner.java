@@ -84,10 +84,27 @@ public class AppRunner {
 
     }
 
+    private void paymentSelection() {
+        System.out.println("a - Монеты");
+        System.out.println("b - Наличные");
+        System.out.println("Выберите способ поплнения: ");
+
+        String action = fromConsole().substring(0, 1);
+        if ("a".equalsIgnoreCase(action)) {
+            refillBalanceWithCoins();
+        } else if ("b".equalsIgnoreCase(action)) {
+
+        } else {
+            print("Недопустимая буква. Попрбуйте еще раз.");
+            paymentSelection();
+        }
+    }
+
+
+
     private void refillBalanceWithCoins() {
         coinAcceptor.setAmount(coinAcceptor.getAmount() + 10);
         print("Вы пополнили баланс на 10");
-        return;
     }
 
     private void showActions(UniversalArray<Product> products) {
