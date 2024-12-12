@@ -63,8 +63,7 @@ public class AppRunner {
         print(" h - Выйти");
         String action = fromConsole().substring(0, 1);
         if ("a".equalsIgnoreCase(action)) {
-            coinAcceptor.setAmount(coinAcceptor.getAmount() + 10);
-            print("Вы пополнили баланс на 10");
+            paymentSelection();
             return;
         }
         try {
@@ -96,7 +95,7 @@ public class AppRunner {
         if ("a".equalsIgnoreCase(action)) {
             refillBalanceWithCoins();
         } else if ("b".equalsIgnoreCase(action)) {
-
+            refillBalanceWithCash();
         } else {
             print("Недопустимая буква. Попрбуйте еще раз.");
             paymentSelection();
