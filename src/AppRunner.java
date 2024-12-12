@@ -84,6 +84,12 @@ public class AppRunner {
 
     }
 
+    private void refillBalanceWithCoins() {
+        coinAcceptor.setAmount(coinAcceptor.getAmount() + 10);
+        print("Вы пополнили баланс на 10");
+        return;
+    }
+
     private void showActions(UniversalArray<Product> products) {
         for (int i = 0; i < products.size(); i++) {
             print(String.format(" %s - %s", products.get(i).getActionLetter().getValue(), products.get(i).getName()));
