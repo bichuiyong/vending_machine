@@ -11,6 +11,8 @@ public class AppRunner {
 
     private final CoinAcceptor coinAcceptor;
 
+    private final CashAcceptor cashAcceptor;
+
     private static boolean isExit = false;
 
     private AppRunner() {
@@ -22,7 +24,8 @@ public class AppRunner {
                 new Mars(ActionLetter.F, 80),
                 new Pistachios(ActionLetter.G, 130)
         });
-        coinAcceptor = new CoinAcceptor(100);
+        coinAcceptor = new CoinAcceptor(0);
+        cashAcceptor = new CashAcceptor(0);
     }
 
     public static void run() {
@@ -87,7 +90,7 @@ public class AppRunner {
     private void paymentSelection() {
         System.out.println("\na - Монеты");
         System.out.println("b - Наличные");
-        System.out.println("Выберите способ поплнения: ");
+        System.out.println("Выберите способ пополнения: ");
 
         String action = fromConsole().substring(0, 1);
         if ("a".equalsIgnoreCase(action)) {
@@ -100,7 +103,27 @@ public class AppRunner {
         }
     }
 
+    private void refillBalanceWithCash() {
+        print("1 - 20" +
+                "\n2 - 50" +
+                "\n3 - 100" +
+                "\n4 - 200");
 
+        print("Выберите сумму пополнения: ");
+        String action = fromConsole().substring(0, 1);
+        if ("1".equalsIgnoreCase(action)) {
+            cashAcceptor.setAmount(cashAcceptor.getAmount() + 20);
+        } else if ("2".equalsIgnoreCase(action)) {
+            cashAcceptor.setAmount(cashAcceptor.getAmount() + 50);
+        } else if ("3".equalsIgnoreCase(action)) {
+            cashAcceptor.setAmount(cashAcceptor.getAmount() + 100);
+        } else if ("4".equalsIgnoreCase(action)) {
+            cashAcceptor.setAmount(cashAcceptor.getAmount() + 200);
+        } else {
+            print("Недопустимая цифра. Попрбуйте еще раз.");
+            refillBalanceWithCash();
+        }
+    }
 
     private void refillBalanceWithCoins() {
         coinAcceptor.setAmount(coinAcceptor.getAmount() + 10);
