@@ -85,7 +85,7 @@ public class AppRunner {
     }
 
     private void paymentSelection() {
-        System.out.println("a - Монеты");
+        System.out.println("\na - Монеты");
         System.out.println("b - Наличные");
         System.out.println("Выберите способ поплнения: ");
 
