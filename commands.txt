@@ -1,0 +1,10 @@
+I pulled the object through IDE
+git branch home_work_25
+git checkout home_work_25
+git status
+git add .
+git commit -m "..."
+git push origin home_work_25
+git checkout master
+git merge home_work_25
+
