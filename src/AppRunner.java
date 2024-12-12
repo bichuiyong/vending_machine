@@ -59,6 +59,7 @@ public class AppRunner {
         print(" a - Пополнить баланс");
         showActions(products);
         print(" h - Выйти");
+        print("\nВведите действие: ");
         String action = fromConsole().substring(0, 1);
         if ("a".equalsIgnoreCase(action)) {
             paymentSelection();
@@ -101,7 +102,7 @@ public class AppRunner {
     }
 
     private void refillBalanceWithCash() {
-        print("1 - 20" +
+        print("\n1 - 20" +
                 "\n2 - 50" +
                 "\n3 - 100" +
                 "\n4 - 200");
